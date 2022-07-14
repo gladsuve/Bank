@@ -21,8 +21,8 @@
                         <li class="nav-item"><a class="nav-link" href="jsp/board/list.jsp">게시판</a></li>
                         <c:choose>				 	
 				 			<c:when test="${ empty userVO }">
-				 			<li class="nav-item"><a class="nav-link" href="jsp/login/login.jsp">로그인</a><li>
-				 			<li class="nav-item"><a class="nav-link" href="jsp/login/signup.jsp">회원가입</a></li>
+				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/login.do">로그인</a><li>
+				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/signup.do">회원가입</a></li>
 				 			</c:when>
 				 			<c:otherwise>
 				 			<li class="nav-item"><a class="nav-link" href="/Bank-PJT/index.jsp">마이페이지</a><li>

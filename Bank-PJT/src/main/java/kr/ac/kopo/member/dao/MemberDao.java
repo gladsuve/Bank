@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.ac.kopo.member.vo.MemberTestVO;
 import kr.ac.kopo.member.vo.MemberVO;
 import kr.ac.kopo.util.ConnectionFactory;
 
@@ -16,8 +17,8 @@ public class MemberDao {
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select id, name, password, email_id, email_domain, tel1, tel2, tel3, post, basic_addr, detail_addr, type, to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
-		sql.append(" from t_member ");
+		sql.append("select id, name, password, email_id, email_domain, tel1, tel2, tel3, post, basic_addr, detail_addr ");
+		sql.append(" from b_member ");
 		sql.append(" order by id desc");
 		
 		
@@ -67,6 +68,46 @@ public class MemberDao {
 		
 		return list;
 	}
+	
+	
+	public MemberTestVO signup(MemberTestVO TestVO) {
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("insert into a_test values(?, ?) ");
+		
+		try (
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			pstmt.setString(1, TestVO.getId());
+			pstmt.setString(2, TestVO.getPwd());
+			
+			ResultSet rs =  pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberTestVO memberVO = new MemberTestVO();
+				memberVO.setId(rs.getString("id"));
+				memberVO.setPwd(rs.getString("pwd"));
+				
+				
+				return memberVO;
+			}
+			
+		}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

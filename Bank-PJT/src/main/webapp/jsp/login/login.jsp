@@ -7,7 +7,7 @@
 <title>로그인</title>
 <link rel="stylesheet" href="/Bank-PJT/resource/css/styles.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"></script>
-<script src="/Mission-web/resource/lib/myJs.js"></script>
+<script src="/Bank-PJT/resource/lib/myJs.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
 	
@@ -59,7 +59,7 @@
 				<h2>로그인</h2>
 			<hr>
 			<br>
-			<form action="loginProcess.jsp" method="post"
+			<form action="${ pageContext.request.contextPath }/loginProcess.do" method="post"
 			onsubmit="return checkForm()" name="loginForm">
 				<table style="width : 10%">
 					<tr>

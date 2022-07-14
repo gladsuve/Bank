@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.ac.kopo.board.vo.BoardFileVO;
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.util.ConnectionFactory;
 import kr.ac.kopo.util.JDBCClose;

@@ -8,7 +8,8 @@ public class SignUpController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		return "jsp/login/signup.jsp";
+		
+		return "jsp/login/signupForm.jsp";
 	}
 
 
