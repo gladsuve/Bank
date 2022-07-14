@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#searchResult {
+		width: 60%;
+		height : 100vh;
+		border : 1px solid blue;
+	}
+	
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#searchBtn').click(function() {
+		
+			let searchDate = $('#searchDate').val().split('-').join('')
+			
+			$.ajax({
+				type : 'get',
+				url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
+				data : {
+					key : '006e440a3177566d6a7b4b6ec56894f1',
+// 					targetDt : '20220401'
+					targetDt : searchDate
+				}, datatype : 'jsonp',
+				success : callback
+				, error : function() {
+					alert('실패')
+				}
+				
+			})
+			
+		})	
+		
+	})
+
+	function callback(result) {
+		let list = result.boxOfficeResult.dailyBoxOfficeList
+		
+		$('#searchResult').empty()
+		for(let i = 0; i < 5; i++) {
+			let movieData = list[i]
+			let rank = movieData.rank
+			let name = movieData.movieNm
+			let audiCnt = movieData.audiCnt
+			
+			$('#searchResult').append('<h4>' + rank + '위</h4>')
+			$('#searchResult').append(`<strong>${name}</strong>(${audiCnt}명)`)
+			$('#searchResult').append('<br>')
+			$('#searchResult').append('<button id="searchDetail">상세보기</button>')
+			$('#searchResult').append('<hr>')
+			
+		}
+	}
+	
+	
+	$(document).on('click', '#searchDetail', function() {
+		
+		$.ajax({
+			type : 'get',
+			url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json",
+			data : {
+				key : '006e440a3177566d6a7b4b6ec56894f1',
+				movieCd : '20124079'
+			}, success : callba
+			, error : function() {
+				alert('실패')
+					}
+		})
+	
+	})
+	
+	function callba(result) {
+		
+	}
+	
+	
+</script>
+</head>
+
+<body>
+	<h2>일별 박스오피스 조회 서비스</h2>
+	조회날짜 : <input type="date" id="searchDate">
+	<button id="searchBtn">조회</button>
+	<h3>조회 결과</h3>
+	<div id="searchResult"></div>
+	<div id="searchDetail"></div>
+
+</body>
+</html>

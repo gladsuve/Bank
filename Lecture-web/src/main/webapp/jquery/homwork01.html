@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>과제1</title>
+<style>
+body {
+	display : flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+div {
+	display : flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	line-height : 50px;
+	float : left;
+}
+
+.red{
+	width : 100px;
+	height : 100px;
+	background-color : red;
+	display : relative;
+	}
+	
+.orange{
+		width : 100px;
+		height : 100px;
+		background-color : orange;
+		position : relative;
+	}
+	
+.yellow{
+		width : 100px;
+		height : 100px;
+		background-color : yellow;
+		position : relative;
+	}
+.green{
+		width : 100px;
+		height : 100px;
+		background-color : green;
+		position : relative;	
+	}
+.blue{
+		width : 100px;
+		height : 100px;
+		background-color : blue;
+		position : relative;
+	}
+.indigo{
+		width : 100px;
+		height : 100px;
+		background-color : indigo;
+		position : relatvie;
+	}
+.purple{
+		width : 100px;
+		height : 100px;
+		background-color : purple;
+		position : relative;
+		
+	}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+	$(document).ready(function() {
+		$('.red').mouseover(function() {
+			$(this).stop().animate({
+				height : '150px',
+				width : '150px'
+			})
+			$(this).html('<h1>일요일</h1>')
+			
+		}) .mouseleave(function(){
+			$(this).stop().animate({
+				height : '100px',
+				width : '100px'
+			})	
+			$(this).html('<h1>일</h1>')
+		})
+		
+		$('.orange').mouseover(function() {
+			$(this).stop().animate({
+				height : '150px',
+				width : '150px'
+			})
+			$(this).html('<h1>월요일</h1>')
+			
+		}) .mouseleave(function(){
+			$(this).stop().animate({
+				height : '100px',
+				width : '100px'
+			})	
+			$(this).html('<h1>월</h1>')
+		})
+		
+		$('.yellow').mouseover(function() {
+			$(this).stop().animate({
+				height : '150px',
+				width : '150px'
+			})
+			$(this).html('<h1>화요일</h1>')
+			
+		}) .mouseleave(function(){
+			$(this).stop().animate({
+				height : '100px',
+				width : '100px'
+			})	
+			$(this).html('<h1>화</h1>')
+		})
+		
+		$('.green').mouseover(function() {
+			$(this).stop().animate({
+				height : '150px',
+				width : '150px'
+			})
+			$(this).html('<h1>수요일</h1>')
+			
+		}) .mouseleave(function(){
+			$(this).stop().animate({
+				height : '100px',
+				width : '100px'
+			})	
+			$(this).html('<h1>수</h1>')
+		})
+		
+		$('.blue').mouseover(function() {
+			$(this).stop().animate({
+				height : '150px',
+				width : '150px'
+			})
+			$(this).html('<h1>목요일</h1>')
+			
+		}) .mouseleave(function(){
+			$(this).stop().animate({
+				height : '100px',
+				width : '100px'
+			})	
+			$(this).html('<h1>목</h1>')
+		})
+		
+		$('.indigo').mouseover(function() {
+			$(this).stop().animate({
+				height : '150px',
+				width : '150px'
+			})
+			$(this).html('<h1>금요일</h1>')
+			
+		}) .mouseleave(function(){
+			$(this).stop().animate({
+				height : '100px',
+				width : '100px'
+			})	
+			$(this).html('<h1>금</h1>')
+		})
+		
+		$('.purple').mouseover(function() {
+			$(this).stop().animate({
+				height : '150px',
+				width : '150px'
+			})
+			$(this).html('<h1>토요일</h1>')
+			
+		}) .mouseleave(function(){
+			$(this).stop().animate({
+				height : '100px',
+				width : '100px'
+			})	
+			$(this).html('<h1>토</h1>')
+		})
+		
+		
+		
+		
+		
+		
+	})	
+		
+		
+
+
+</script>
+</head>
+<body>
+	<div class="red">
+	<h1>일</h1>
+	</div>
+	<div class="orange">
+	<h1>월</h1>
+	</div>
+	<div class="yellow">
+	<h1>화</h1>
+	</div>
+	<div class="green">
+	<h1>수</h1>
+	</div>
+	<div class="blue">
+	<h1>목</h1>
+	</div>
+	<div class="indigo">
+	<h1>금</h1>
+	</div>
+	<div class="purple">
+	<h1>토</h1>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#prevBtn').click(function() {
+			$('img').last().prependTo('span')
+		})
+		
+		$('#nextBtn').click(function() {
+			$('img').first().appendTo('span')
+		})
+		
+		setInterval(function(){
+			$('#nextBtn').trigger('click')
+		})
+	})
+</script>
+</head>
+<body>
+	<button id='prevBtn'>PREV</button>
+	<span>
+		<img src="images/browne_carbon_01.jpg">
+		<img src="images/기타2.png">
+		<img src="images/기타3.png">
+		<img src="images/기타4.jpg"><br>	
+	</span>
+	<button id='nextBtn'>NEXT</button>
+</body>
+</html>

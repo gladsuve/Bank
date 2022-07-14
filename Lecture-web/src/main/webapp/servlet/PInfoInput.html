@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div align="center">
+	<h1>개인 정보 입력</h1>
+	<form action="/Lecture-web/pinfoResult" method="post">
+		이 름 : <input type="text" name="name"><br>
+		아 이 디 : <input type="text" name="id"><br>
+		패 스 워 드 : <input type="text" name="password"><br><br>
+		성 별 : <label>남
+		<input type="radio" name="gender" value="남" checked>
+		</label>
+		<label>여
+		<input type="radio" name="gender" value="여">
+		</label><br><br>
+		메일 수신 여부 : 
+		공지 메일<input type="checkbox" name="notemail" value="받음">
+		광고 메일<input type="checkbox" name="advmail" value="받음">
+		배송 확인 메일<input type="checkbox" name="devmail" value="받음">
+		<br><br>
+		직업 : 
+		<select name = "job">
+			<option value="회사원" selected>회사원</option>
+			<option value="학생">학생</option>
+			<option value="기타">기타</option>
+		</select><br><br>
+		<button type="button" id="cancel">취소</button>
+		<input type="submit" value="확인">&nbsp;&nbsp;
+		
+		
+	</form>
+	
+</div>
+<!-- 	<form action="/Lecture-web/method" method="post">
+		ID : <input type="text" name="id">
+		<input type="submit" value="POST방식 호출">
+	</form>
+	
+	<form action="/Lecture-web/exam" method="get">
+		ID : <input type="text" name="id"><br>
+		취미 :
+		<input type="checkbox" name="hobby" value="reading">reading
+		<input type="checkbox" name="hobby" value="music">music
+		<input type="checkbox" name="hobby" value="movie">movie
+		<input type="submit" value="전송">
+	</form>
+ -->
+</body>
+</html>
