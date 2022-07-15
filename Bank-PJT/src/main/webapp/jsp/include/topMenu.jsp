@@ -20,7 +20,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">오픈뱅킹</a></li>
                         <li class="nav-item"><a class="nav-link" href="jsp/board/list.jsp">게시판</a></li>
                         <c:choose>				 	
-				 			<c:when test="${ empty userVO }">
+				 			<c:when test="${ empty user }">
 				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/login.do">로그인</a><li>
 				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/signup.do">회원가입</a></li>
 				 			</c:when>

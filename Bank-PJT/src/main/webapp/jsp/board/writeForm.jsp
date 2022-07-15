@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>글 등록</title>
-<link rel="stylesheet" href="/Mission-web/resource/css/layout.css">
-<link rel="stylesheet" href="/Mission-web/resource/css/table.css">
+<link rel="stylesheet" href="/Bank-PJT/resource/css/table.css">
 <script src="/Mission-web/resource/lib/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function(){

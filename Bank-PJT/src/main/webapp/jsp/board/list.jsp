@@ -43,8 +43,8 @@ pageContext.setAttribute("list", list);
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/Mission-web/resource/css/table.css">
-<script src="/Mission-web/resource/lib/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="/Bank-PJT/resource/css/table.css">
+<script src="/Bank-PJT/resource/lib/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function(){
 		$('#add').click(function(){
@@ -57,7 +57,7 @@ pageContext.setAttribute("list", list);
 		<c:choose>
 			<c:when test="${ empty userVO}">
 				if(confirm('로그인 후 사용가능합니다\n로그인 페이지로 이동할까요?')) {
-					location.href="/Mission-web/jsp/login/login.jsp"
+					location.href="/Bank-PJT/jsp/login/login.jsp"
 				}
 			</c:when>
 			<c:otherwise>

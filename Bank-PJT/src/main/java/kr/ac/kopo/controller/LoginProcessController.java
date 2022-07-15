@@ -4,7 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.ac.kopo.member.vo.MemberTestVO;
+import kr.ac.kopo.member.dao.MemberDAO;
+import kr.ac.kopo.member.vo.SignUpVO;
 
 public class LoginProcessController implements Controller {
 
@@ -18,19 +19,26 @@ public class LoginProcessController implements Controller {
 		
 
 			
-			MemberTestVO userVO = new MemberTestVO();
+			SignUpVO userVO = new SignUpVO();
 			userVO.setId(id);
 			userVO.setPwd(pwd);
 	
+			MemberDAO dao = new MemberDAO();
+			SignUpVO user = dao.login(userVO);
 			
-			// 세션등록
-			HttpSession session = request.getSession();
-			session.setAttribute("userVO", userVO);
+			if(user != null) {
+				
+				// 세션등록
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				return "redirect:/";
+			}
 			
 			
-
-		// 로그인 실패
-		return "redirect:/login.do";
+			
+	
+			// 로그인 실패
+			return "redirect:/list.do";
 	}
 
 }

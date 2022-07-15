@@ -1,19 +1,20 @@
-b<%@page import="kr.ac.kopo.member.dao.MemberDao"%>
+b<%@page import="kr.ac.kopo.member.vo.SignUpVO"%>
+<%@page import="kr.ac.kopo.member.dao.MemberDAO"%>
 <%@page import="kr.ac.kopo.member.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 
 	String id = request.getParameter("id");
-	String password = request.getParameter("password");
+	String pwd = request.getParameter("pwd");
 	
-	MemberVO memberVO = new MemberVO();
-	memberVO.setId(id);
-	memberVO.setPassword(password);
+	SignUpVO userVO = new SignUpVO();
+	userVO.setId(id);
+	userVO.setPwd(pwd);
 	
-	MemberDao dao = new MemberDao();
-	MemberVO userVO = dao.login(memberVO);
+	MemberDAO dao = new MemberDAO();
+	SignUpVO user = dao.login(userVO);
 
 	String msg = "";
 	String url = ""; 
@@ -23,19 +24,12 @@ b<%@page import="kr.ac.kopo.member.dao.MemberDao"%>
 		url = "login.jsp";
 	} else {
 		//로그인 성공
-		switch(userVO.getType()) {
-		case "S":
-			msg = "관리자님 환영합니다.";
-			break;
-		case "U":
-			msg = userVO.getId() + "님 환영합니다.";
-			break;
-		}
-// 		msg = "로그인을 성공했습니다.";
+	
+		msg = "로그인을 성공했습니다.";
 		url = "/Bank-PJT/index.jsp";
 		
 		// 세션등록
-		session.setAttribute("userVO", userVO);
+		session.setAttribute("user", user);
 	}
 		
 		pageContext.setAttribute("msg", msg);

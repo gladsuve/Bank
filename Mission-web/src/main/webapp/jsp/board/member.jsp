@@ -1,6 +1,6 @@
 <%@page import="kr.ac.kopo.member.vo.MemberVO"%>
 <%@page import="java.util.List"%>
-<%@page import="kr.ac.kopo.member.dao.MemberDao"%>
+<%@page import="kr.ac.kopo.member.dao.MemberDAO"%>
 <%@page import="kr.ac.kopo.util.ConnectionFactory"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -14,22 +14,24 @@
     
     
 <%
+                    p
 
-MemberDao dao = new MemberDao();
-List<MemberVO> list = dao.selectAll();
 
-pageContext.setAttribute("list", list);
+                    MemberDAO dao = new MemberDAO();
+                    List<MemberVO> list = dao.selectAll();
 
-/* 	Connection conn = new ConnectionFactory().getConnection();
-	StringBuilder sql = new StringBuilder();
-	sql.append("select id, name, password, email_id, email_domain, tel1, tel2, tel3, ");
-	sql.append(" post, basic_addr, detail_addr, type, to_char(reg_date,'yyyy-mm-dd') as reg_date ");
-	sql.append(" from t_member ");
-	sql.append(" order by id ");
-	
-	PreparedStatement pstmt = conn.prepareStatement(sql.toString());
-	ResultSet rs = pstmt.executeQuery(); */
-%>
+                    pageContext.setAttribute("list", list);
+
+                    /* 	Connection conn = new ConnectionFactory().getConnection();
+                    	StringBuilder sql = new StringBuilder();
+                    	sql.append("select id, name, password, email_id, email_domain, tel1, tel2, tel3, ");
+                    	sql.append(" post, basic_addr, detail_addr, type, to_char(reg_date,'yyyy-mm-dd') as reg_date ");
+                    	sql.append(" from t_member ");
+                    	sql.append(" order by id ");
+                    	
+                    	PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+                    	ResultSet rs = pstmt.executeQuery(); */
+                    %>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,20 +1,20 @@
 package kr.ac.kopo.member.service;
 
-import kr.ac.kopo.member.dao.MemberDao;
-import kr.ac.kopo.member.vo.MemberTestVO;
+import kr.ac.kopo.member.dao.MemberDAO;
+import kr.ac.kopo.member.vo.SignUpVO;
 
 public class SignUpService {
 
-	private MemberDao dao;
+	private MemberDAO dao;
 	public SignUpService() {
-		dao = new MemberDao();
+		dao = new MemberDAO();
 	}
 	
 	
 	
 	
 	
-	public void addMember(MemberTestVO TestVO) {
-		dao.signup(TestVO);
+	public void addMember(SignUpVO signupVO) {
+		dao.signup(signupVO);
 	}
 }

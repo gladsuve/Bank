@@ -1,8 +1,10 @@
-b<%@page import="kr.ac.kopo.member.dao.MemberDao"%>
+b<%@page import="kr.ac.kopo.member.dao.MemberDAO"%>
 <%@page import="kr.ac.kopo.member.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+p
+
 	request.setCharacterEncoding("utf-8");
 
 	String id = request.getParameter("id");
@@ -12,7 +14,7 @@ b<%@page import="kr.ac.kopo.member.dao.MemberDao"%>
 	memberVO.setId(id);
 	memberVO.setPassword(password);
 	
-	MemberDao dao = new MemberDao();
+	MemberDAO dao = new MemberDAO();
 	MemberVO userVO = dao.login(memberVO);
 
 	String msg = "";
@@ -25,11 +27,11 @@ b<%@page import="kr.ac.kopo.member.dao.MemberDao"%>
 		//로그인 성공
 		switch(userVO.getType()) {
 		case "S":
-			msg = "관리자님 환영합니다.";
-			break;
+	msg = "관리자님 환영합니다.";
+	break;
 		case "U":
-			msg = userVO.getId() + "님 환영합니다.";
-			break;
+	msg = userVO.getId() + "님 환영합니다.";
+	break;
 		}
 // 		msg = "로그인을 성공했습니다.";
 		url = "/Bank-PJT";

@@ -24,7 +24,7 @@
  
  	request.setCharacterEncoding("utf-8");
  
- 	String saveFolder = "D:/Lecture/web-workspace/Mission-web/src/main/webapp/upload";
+ 	String saveFolder = "D:/Lecture/web-workspace/Bank-PJT/src/main/webapp/upload";
  
  	MultipartRequest multi = new MultipartRequest(
  								request,

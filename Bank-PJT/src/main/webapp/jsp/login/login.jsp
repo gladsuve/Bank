@@ -27,20 +27,20 @@
 		
 		let f = document.loginForm
 		
-		if(isNull(f.id, "아이디를 입력하세요") || isNull(f.password, "패스워드를 입력하세요"))
+		if(isNull(f.id, "아이디를 입력하세요") || isNull(f.pwd, "패스워드를 입력하세요"))
 			return false
 // 		isNull(f.password)
 		
-		if(f.id.value == ''){
-			alert('아이디를 입력하세요')
-			f.id.focus()
-			return false;
+		if(submit.id.value ==""||submit.id.value.length == 0){
+			alert("아이디를 입력하세요");
+			submit.id.focus();
+			return false
 		}
 		
-		if(f.password.value == ''){
-			alert('비밀번호를 입력하세요')
-			f.password.focus()
-			return false;
+		if(submit.pwd.value ==""||submit.pwd.value.length == 0){
+			alert("비밀번호를 입력하세요");
+			submit.pwd.focus();
+			return false
 		}
 		
 		
@@ -68,10 +68,17 @@
 					</tr>
 					<tr>
 						<th>PASSWORD</th>
-						<td><input type="password" name="password"></td>
+						<td><input type="password" name="pwd"></td>
 					</tr>
 				</table>
-				<input type="submit" value="로그인">
+				<div class="container col-lg-3">
+					<div class="col-lg-12 margin-auto" >
+						<div class="jumbotron" style="padding-top: 20px;">
+							<input type="submit" class="btn btn-dark form-control padding-10px;"  value="로그인">
+						</div>
+					</div>
+	
+				</div>
 			</form>
 			
 			
