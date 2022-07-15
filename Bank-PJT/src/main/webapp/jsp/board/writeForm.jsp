@@ -70,7 +70,7 @@
 		<br>
 		<form action="write.jsp" method="post" name="writeForm" onsubmit="return checkForm()"
 		enctype="multipart/form-data">
-		<input type="hidden" name="writer" value="${ userVO.id }">
+		<input type="hidden" name="writer" value="${ user.id }">
 			<table border="1" style="width: 80%">
 				<tr>
 					<th width="25%">제목</th>
@@ -78,7 +78,7 @@
 				</tr>
 				<tr>
 					<th width="25%">작성자</th>
-					<td>${ userVO.id }</td>
+					<td>${ user.id }</td>
 	<%-- 				<td><input type="text" name="writer" value=${ userVO.id } readonly></td> --%>
 				</tr>
 				<tr>

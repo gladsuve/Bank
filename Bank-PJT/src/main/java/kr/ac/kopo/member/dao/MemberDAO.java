@@ -16,8 +16,9 @@ public class MemberDAO {
 		List<SignUpVO> list = new ArrayList<SignUpVO>();
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("insert into b_member(id, pwd, name, email, phone, addr) ");
-		sql.append(" values(?, ?, ?, ?, ?, ?) ");
+		sql.append("select id, pwd, name, email, phone, addr ");
+		sql.append(" from b_member ");
+		
 		
 		
 		

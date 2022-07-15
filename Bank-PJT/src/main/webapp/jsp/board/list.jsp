@@ -55,7 +55,7 @@ pageContext.setAttribute("list", list);
 	})
 	function checkLogin(boardNo){
 		<c:choose>
-			<c:when test="${ empty userVO}">
+			<c:when test="${ empty user }">
 				if(confirm('로그인 후 사용가능합니다\n로그인 페이지로 이동할까요?')) {
 					location.href="/Bank-PJT/jsp/login/login.jsp"
 				}
@@ -126,7 +126,7 @@ pageContext.setAttribute("list", list);
 			%>
 			</tr> --%>
 		</table><br>
-		<c:if test="${ not empty userVO }">
+		<c:if test="${ not empty user }">
 		<button id="add">새글등록</button>
 		</c:if>
 	<!-- 	<button id="update">글수정</button>
