@@ -53,8 +53,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/Mission-web/resource/css/layout.css">
-<link rel="stylesheet" href="/Mission-web/resource/css/table.css">
+<link rel="stylesheet" href="/Bank-PJT/resource/css/layout.css">
+<link rel="stylesheet" href="/Bank-PJT/resource/css/table.css">
 </head>
 
 
