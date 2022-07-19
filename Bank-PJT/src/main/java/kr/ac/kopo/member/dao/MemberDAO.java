@@ -112,7 +112,7 @@ public class MemberDAO {
 	public SignUpVO login(SignUpVO signupVO) {
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select id, pwd ");
+		sql.append("select id, pwd, phone ");
 		sql.append(" from b_member ");
 		sql.append(" where id = ? and pwd = ? ");
 		
@@ -123,18 +123,22 @@ public class MemberDAO {
 			
 			pstmt.setString(1, signupVO.getId());
 			pstmt.setString(2, signupVO.getPwd());
-			
+
 			ResultSet rs =  pstmt.executeQuery();
 			
 			if(rs.next()) {
+				String id = rs.getString("id");
+				String pwd = rs.getString("pwd");
+				String phone = rs.getString("phone");
+				
 				SignUpVO userVO = new SignUpVO();
-				userVO.setId(rs.getString("id"));
-				userVO.setPwd(rs.getString("pwd"));
+				userVO.setId(id);
+				userVO.setPwd(pwd);
+				userVO.setPhone(phone);
 				
 				return userVO;
-				
-				
 			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

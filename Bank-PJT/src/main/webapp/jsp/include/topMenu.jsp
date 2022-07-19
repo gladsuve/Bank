@@ -25,8 +25,8 @@
 				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/signup.do">회원가입</a></li>
 				 			</c:when>
 				 			<c:otherwise>
-				 			<li class="nav-item"><a class="nav-link" href="/Bank-PJT/index.jsp">마이페이지</a><li>
-				 			<li class="nav-item"><a class="nav-link" href="jsp/login/logout.jsp">로그아웃</a><li>
+				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/accList.do">계좌조회</a><li>
+				 			<li class="nav-item"><a class="nav-link" href="/Bank-PJT/jsp/login/logout.jsp">로그아웃</a><li>
 				 			</c:otherwise>
 				 			
 				 		</c:choose>

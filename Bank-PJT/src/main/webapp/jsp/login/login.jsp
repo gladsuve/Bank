@@ -71,8 +71,8 @@
 						<td><input type="password" name="pwd"></td>
 					</tr>
 				</table>
-				<div class="container col-lg-3">
-					<div class="col-lg-12 margin-auto" >
+				<div class="container col-lg-2">
+					<div class="col-lg-9 margin auto" >
 						<div class="jumbotron" style="padding-top: 20px;">
 							<input type="submit" class="btn btn-dark form-control padding-10px;"  value="로그인">
 						</div>

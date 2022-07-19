@@ -18,6 +18,8 @@ public class LoginProcessController implements Controller {
 		String pwd = request.getParameter("pwd");
 		
 
+		
+
 			
 			SignUpVO userVO = new SignUpVO();
 			userVO.setId(id);
@@ -38,7 +40,7 @@ public class LoginProcessController implements Controller {
 			
 	
 			// 로그인 실패
-			return "redirect:/list.do";
+			return "redirect:/login.do";
 	}
 
 }
