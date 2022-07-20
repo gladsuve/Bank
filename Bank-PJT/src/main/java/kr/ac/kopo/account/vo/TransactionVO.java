@@ -1,7 +1,19 @@
 package kr.ac.kopo.account.vo;
 
-public class TransferVO {
+public class TransactionVO {
 	
+	public String getDeposit_bank_name() {
+		return deposit_bank_name;
+	}
+	public void setDeposit_bank_name(String deposit_bank_name) {
+		this.deposit_bank_name = deposit_bank_name;
+	}
+	public String getWithrawal_bank_name() {
+		return withrawal_bank_name;
+	}
+	public void setWithrawal_bank_name(String withrawal_bank_name) {
+		this.withrawal_bank_name = withrawal_bank_name;
+	}
 	@Override
 	public String toString() {
 		return "TransferVO [tran_num=" + tran_num + ", deposit_account_num=" + deposit_account_num
@@ -80,10 +92,12 @@ public class TransferVO {
 	private int tran_amount;
 	private String tran_date;
 	private String phone_number;
+	private String deposit_bank_name;
+	private String withrawal_bank_name;
 	
 	
 	
-	public TransferVO(int tran_num, String deposit_account_num, String withrawal_accout_num, String deposit_name,
+	public TransactionVO(int tran_num, String deposit_account_num, String withrawal_accout_num, String deposit_name,
 			String withrawal_name, String deposit_bank_code, String withrawal_bank_code, int tran_amount,
 			String tran_date, String phone_number) {
 		super();
@@ -98,9 +112,26 @@ public class TransferVO {
 		this.tran_date = tran_date;
 		this.phone_number = phone_number;
 	}
-	public TransferVO() {
+	public TransactionVO() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public TransactionVO(int tran_num, String deposit_account_num, String withrawal_accout_num, String deposit_name,
+			String withrawal_name, String deposit_bank_code, String withrawal_bank_code, int tran_amount,
+			String tran_date, String phone_number, String deposit_bank_name, String withrawal_bank_name) {
+		super();
+		this.tran_num = tran_num;
+		this.deposit_account_num = deposit_account_num;
+		this.withrawal_accout_num = withrawal_accout_num;
+		this.deposit_name = deposit_name;
+		this.withrawal_name = withrawal_name;
+		this.deposit_bank_code = deposit_bank_code;
+		this.withrawal_bank_code = withrawal_bank_code;
+		this.tran_amount = tran_amount;
+		this.tran_date = tran_date;
+		this.phone_number = phone_number;
+		this.deposit_bank_name = deposit_bank_name;
+		this.withrawal_bank_name = withrawal_bank_name;
 	}
 
 

@@ -17,14 +17,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Bank-PJT/index.jsp">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">오픈뱅킹</a></li>
-                        <li class="nav-item"><a class="nav-link" href="jsp/board/list.jsp">게시판</a></li>
+                      
                         <c:choose>				 	
 				 			<c:when test="${ empty user }">
 				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/login.do">로그인</a><li>
 				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/signup.do">회원가입</a></li>
 				 			</c:when>
 				 			<c:otherwise>
+				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/open.do">오픈뱅킹</a></li>
+                        	<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/board/list.do">게시판</a></li>
 				 			<li class="nav-item"><a class="nav-link" href="${ pageContext.request.contextPath }/accList.do">계좌조회</a><li>
 				 			<li class="nav-item"><a class="nav-link" href="/Bank-PJT/jsp/login/logout.jsp">로그아웃</a><li>
 				 			</c:otherwise>

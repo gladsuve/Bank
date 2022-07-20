@@ -81,6 +81,16 @@ function test(){
 <!-- 					<div class="form-group"> -->
 <!-- 					<input type="text" class="form-control" placeholder="은행코드" name="bank_code" maxlength="20" required> -->
 <!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<select class="form-control" name="bank_code" id="bank_code" maxlength="20" required> -->
+<!-- 							<option selected="">입금은행</option> -->
+<!-- 							<option value="9">JH_BANK</option> -->
+<!-- 							<option value="2">BK_BANK</option> -->
+<!-- 							<option value="20">J_INVESTMENT_BANK</option> -->
+<!-- 							<option value="14">BERRY_BANK</option> -->
+<!-- 						</select> -->
+<!-- 					</div> -->
+
 					<div class="form-group">
 						<input type="password" class="form-control" placeholder="비밀번호" name="account_password" maxlength="20" required>
 					</div>

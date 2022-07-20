@@ -17,17 +17,22 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
+                     
                             <h1 class="display-5 fw-bolder text-white mb-2">Present your business in a whole new way</h1>
-                            <p class="lead text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
+                           	<c:if test="${ not empty user }">
+                            <c:out>
+                            <p class="lead text-white-50 mb-4">환영합니다</p>
+                            </c:out>                           	
+                           	</c:if>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                             <c:choose>				 	
 				 				<c:when test="${ not empty user }">
 									<a class="btn btn-primary btn-lg px-4 me-sm-3" href="${pageContext.request.contextPath }/account.do">계좌개설하기</a>
-									<a class="btn btn-primary btn-lg px-4" href="${pageContext.request.contextPath }/transfer.do">이체하기</a>
+									<a class="btn btn-primary btn-lg px-4" href="${pageContext.request.contextPath }/open.do">오픈뱅킹</a>
 				 				</c:when>
 <!-- 				 				<c:otherwise> -->
-<%-- 				 					<a class="btn btn-primary btn-lg px-4 me-sm-3" href="${pageContext.request.contextPath }/login.do">계좌개설하기</a> --%>
-<!-- 									<a class="btn btn-primary btn-lg px-4" href="#!">이체하기</a> -->
+<%-- 				 					<a class="btn btn-primary btn-lg px-4 me-sm-3" href="${pageContext.request.contextPath }/login.do">로그인</a> --%>
+<%-- 									<a class="btn btn-primary btn-lg px-4" href="${ pageContext.request.contextPath }/signup.do">회원가입</a> --%>
 <!-- 				 				</c:otherwise> -->
 				 			</c:choose>
                             

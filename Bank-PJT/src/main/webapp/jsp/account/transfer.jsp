@@ -18,31 +18,36 @@
 		<div class="col-lg-12 margin-auto" >
 			<div class="jumbotron" style="padding-top: 20px;">
 			<form action="${ pageContext.request.contextPath }/transferProcess.do" method="post"
-			name="loginForm" onsubmit="return test()">
+			name="transferForm" onsubmit="return test()">
 					<h3 style="text-align: center;">계좌이체</h3>
 													
-					<div class="form-group">
-								<input type="text" class="form-control" value="${ account_number }" name="account_number" maxlength="20" required readonly/>	
-		
+					
+					<div class="form-group">	
+							<input type="text" class="form-control" value="9" name="sendBankCode" maxlength="20" required readonly/>	
+					</div>
+													
+													
+					<div class="form-group">	
+							<input type="text" class="form-control" value="${ account_number }" name="sendAccountNum" id="sendAccountNum" maxlength="20" required readonly/>	
 					</div>
 
 					<div class="form-group">
-						<select type="text" class="form-control" name= "code" placeholder="입금은행" name="bank_code" maxlength="20" required>
-							<option value="">입금은행</option>
+						<select class="form-control" name="bankCode" id="bankCode" maxlength="20" required>
+							<option selected="">입금은행</option>
 							<option value="9">JH_BANK</option>
 							<option value="2">BK_BANK</option>
 							<option value="20">J_INVESTMENT_BANK</option>
-							<option values="14">BERRY_BANK</option>
+							<option value="14">BERRY_BANK</option>
 						</select>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" name = "receiveAccountNum" placeholder="입금계좌" name="phone" maxlength="50" required>
+						<input type="text" class="form-control" name ="receiveAccountNum" id="receiveAccountNum" placeholder="입금계좌" maxlength="50" required>
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" name = "transferAmount" placeholder="송금액" name="addr" maxlength="200" required>
+						<input type="number" class="form-control" name = "transferAmount" id = "transferAmount" placeholder="송금액" maxlength="200" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" name="password" placeholder="비밀번호" name="pwd" maxlength="20" required>
+						<input type="password" class="form-control" name="accountPassword" id = "accountPassword" placeholder="비밀번호" name="pwd" maxlength="20" required>
 					</div>
 					<div class="form-group">
 						<input type="submit" class="btn btn-dark form-control padding-10px;"  value="이체하기">

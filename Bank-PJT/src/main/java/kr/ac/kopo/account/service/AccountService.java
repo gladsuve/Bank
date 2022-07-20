@@ -14,6 +14,18 @@ public class AccountService {
 		public void addAccount(AccountVO account) {
 			dao.create_acc(account);
 	}
+		
+//		public void transfer(String sendAccountNum,String receiveAccountNum,String transferAmount,String sendBankCode,String bankCode) {
+//			
+//			dao.transfer(sendAccountNum, receiveAccountNum, transferAmount,sendBankCode,bankCode);
+//			
+//		}
+
+		public void transfer(String sendBankCode, String sendAccountNum,String receiveAccountNum,String bankCode,int transferAmount,String accountPassowrd) {
+			
+			dao.transfer(sendBankCode, sendAccountNum, receiveAccountNum,bankCode, transferAmount, accountPassowrd);
+			
+		}
 
 }
 

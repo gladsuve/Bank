@@ -9,7 +9,6 @@ import java.util.List;
 import kr.ac.kopo.account.vo.AccountVO;
 import kr.ac.kopo.member.vo.SignUpVO;
 import kr.ac.kopo.util.ConnectionFactory;
-import kr.ac.kopo.util.JDBCClose;
 
 public class AccountDAO {
 
@@ -18,7 +17,7 @@ public List<AccountVO> selectAll() {
 		List<AccountVO> list = new ArrayList<AccountVO>();
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select phone_number, account_number, account_password, bank_reg_date, balance, bank_alias ");
+		sql.append("select phone_number, account_number, account_password, bank_code, bank_reg_date, balance, bank_alias ");
 		sql.append(" from account ");
 		
 		
@@ -58,13 +57,154 @@ public List<AccountVO> selectAll() {
 		
 		return list;
 	}
+
+public List<AccountVO> selectJhBank(String phone_number) {
+	
+	List<AccountVO> list = new ArrayList<AccountVO>();
+	
+	StringBuilder sql = new StringBuilder();
+	sql.append("select phone_number, account_number, account_password,bank_code, bank_reg_date, balance, bank_alias ");
+	sql.append(" from account@jh_link a, b_member b ");
+	sql.append(" where a.phone_number = b.phone ");
+	
+	
+	
+	try (
+		Connection conn = new ConnectionFactory().getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql.toString());)
+	
+	{
+		ResultSet rs = pstmt.executeQuery();	
+		while(rs.next()) {
+			String phone = rs.getString("phone_number");
+			String num = rs.getString("account_number");
+			String pwd = rs.getString("account_password");
+			String code = rs.getString("bank_code");
+			String regdate = rs.getString("bank_reg_date");
+			int balance = rs.getInt("balance");
+			String alias = rs.getString("bank_alias");
+			
+			AccountVO acc = new AccountVO();
+			acc.setPhone_number(phone);
+			acc.setAccount_number(num);
+			acc.setAccount_password(pwd);
+			acc.setBank_code(code);
+			acc.setBank_reg_date(regdate);
+			acc.setBalance(balance);
+			acc.setBank_alias(alias);
+
+			
+			list.add(acc);
+		}
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
+	
+	return list;
+}
+
+public List<AccountVO> selectBkBank(String phone_number) {
+	
+	List<AccountVO> list = new ArrayList<AccountVO>();
+	
+	StringBuilder sql = new StringBuilder();
+	sql.append("select phone_number, account_number, account_password,bank_code, bank_reg_date, balance, bank_alias ");
+	sql.append(" from account@bk_link a, b_member b ");
+	sql.append(" where a.phone_number = b.phone ");
+	
+	
+	
+	try (
+		Connection conn = new ConnectionFactory().getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql.toString());)
+	
+	{
+		ResultSet rs = pstmt.executeQuery();	
+		while(rs.next()) {
+			String phone = rs.getString("phone_number");
+			String num = rs.getString("account_number");
+			String pwd = rs.getString("account_password");
+			String code = rs.getString("bank_code");
+			String regdate = rs.getString("bank_reg_date");
+			int balance = rs.getInt("balance");
+			String alias = rs.getString("bank_alias");
+			
+			AccountVO acc = new AccountVO();
+			acc.setPhone_number(phone);
+			acc.setAccount_number(num);
+			acc.setAccount_password(pwd);
+			acc.setBank_code(code);
+			acc.setBank_reg_date(regdate);
+			acc.setBalance(balance);
+			acc.setBank_alias(alias);
+
+			
+			list.add(acc);
+		}
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
+	
+	return list;
+}
+
+public List<AccountVO> selectJbBank(String phone_number) {
+	
+	List<AccountVO> list = new ArrayList<AccountVO>();
+	
+	StringBuilder sql = new StringBuilder();
+	sql.append("select phone_number, account_number, account_password, bank_code, bank_reg_date, balance, bank_alias ");
+	sql.append(" from account@jb_link a, b_member b");
+	sql.append(" where a.phone_number = b.phone ");
+	
+		
+	
+	
+	try (
+		Connection conn = new ConnectionFactory().getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql.toString());)
+	
+	{
+		ResultSet rs = pstmt.executeQuery();	
+		while(rs.next()) {
+			String phone = rs.getString("phone_number");
+			String num = rs.getString("account_number");
+			String pwd = rs.getString("account_password");
+			String code = rs.getString("bank_code");
+			String regdate = rs.getString("bank_reg_date");
+			int balance = rs.getInt("balance");
+			String alias = rs.getString("bank_alias");
+			
+			AccountVO acc = new AccountVO();
+			acc.setPhone_number(phone);
+			acc.setAccount_number(num);
+			acc.setAccount_password(pwd);
+			acc.setBank_code(code);
+			acc.setBank_reg_date(regdate);
+			acc.setBalance(balance);
+			acc.setBank_alias(alias);
+
+			
+			list.add(acc);
+		}
+		
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
+	
+	return list;
+}
+
+
 	
 	
 	public AccountVO create_acc(AccountVO accountVO) {
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("insert into account(phone_number, account_number, account_password, bank_reg_date, bank_alias) ");
-		sql.append(" values(?, '009-123-'||round(DBMS_RANDOM.value(100000,999999)) , ?, ? ,?) ");
+		sql.append("insert into account(phone_number, account_number, account_password, bank_alias) ");
+		sql.append(" values(?, '009-123-'||round(DBMS_RANDOM.value(100000,999999)) , ?, ?) ");
 		
 		try (
 				Connection conn = new ConnectionFactory().getConnection();
@@ -72,9 +212,9 @@ public List<AccountVO> selectAll() {
 		) {
 			pstmt.setString(1, accountVO.getPhone_number());
 			pstmt.setString(2, accountVO.getAccount_password());
-			pstmt.setString(3, accountVO.getBank_reg_date());
+//			pstmt.setString(3, accountVO.getBank_reg_date());
 //			pstmt.setInt(5, accountVO.getAccount_password());
-			pstmt.setString(4, accountVO.getBank_alias());
+			pstmt.setString(3, accountVO.getBank_alias());
 		
 			
 
@@ -154,21 +294,20 @@ public static List<AccountVO> selectAcc() {
 		
 		List<AccountVO> list = new ArrayList<AccountVO>();
 		
-		
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-		conn = new ConnectionFactory().getConnection();
 		StringBuilder sql = new StringBuilder();
 		sql.append("select phone_number, account_number, account_password, bank_code, bank_reg_date, balance, bank_alias, transfer_limit ");
-		sql.append(" from account ");
-//		sql.append(" where acc_phone = ? ");
+		sql.append(" from account a, b_member b ");
+		sql.append(" where a.phone_number = b.phone ");
 		
-		pstmt = conn.prepareStatement(sql.toString());
-		ResultSet rs = pstmt.executeQuery();
 		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());){
+		
+//			pstmt.setString(1, "phone");
+			ResultSet rs = pstmt.executeQuery();
+
+					
 		while(rs.next()) {
 			String phone = rs.getString("phone_number");
 			String num = rs.getString("account_number");
@@ -196,29 +335,92 @@ public static List<AccountVO> selectAcc() {
 		
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			JDBCClose.close(pstmt, conn);
-		}
+		} 
 		return list;
 	}
 
-	public void transfer(String send_code, String sendAccountNum, String receive_code, String receiveAccountNum, String transferAmount) {
+	public void transfer(String sendBankCode, String sendAccountNum, String receiveAccountNum, String bankCode, int transferAmount, String accountPassword) {
 		
 		StringBuilder sql1 = new StringBuilder();
 		StringBuilder sql2 = new StringBuilder();
-		
-		if(send_code.equals("9") && receive_code.equals("9")) {
-			sql1.append("update account set balance = balance - ? where account_number = ?" );
-			sql2.append("update account set balance = balance + ? where account_number = ?" );			
+		if(sendBankCode.equals("9") && bankCode.equals("9")) {
+		sql1.append("update account set balance = balance - ? where account_number = ?" );
+		sql2.append("update account set balance = balance + ? where account_number = ?" );			
 		}
+		if(sendBankCode.equals("9") && bankCode.equals("2")) {
+			sql1.append("update account set balance = balance - ? where account_number = ?" );
+			sql2.append("update account@bk_link set balance = balance + ? where account_number = ?" );			
+		}
+		if(sendBankCode.equals("9") && bankCode.equals("14")) {
+			sql1.append("update account set balance = balance - ? where account_number = ?" );
+			sql2.append("update account@jb_link set balance = balance + ? where account_number = ?" );			
+		}
+		if(sendBankCode.equals("9") && bankCode.equals("20")) {
+			sql1.append("update account set balance = balance - ? where account_number = ?" );
+			sql2.append("update account@jh_link set balance = balance + ? where account_number = ?" );			
+		}
+
+		if(sendBankCode.equals("20") && bankCode.equals("9")) {
+			sql1.append("update account@jh_link set balance = balance - ? where account_number = ?" );
+			sql2.append("update account set balance = balance + ? where account_number = ?" );			
+			}
+		if(sendBankCode.equals("20") && bankCode.equals("2")) {
+				sql1.append("update account@jh_link set balance = balance - ? where account_number = ?" );
+				sql2.append("update account@bk_link set balance = balance + ? where account_number = ?" );			
+			}
+		if(sendBankCode.equals("20") && bankCode.equals("14")) {
+				sql1.append("update account@jh_link set balance = balance - ? where account_number = ?" );
+				sql2.append("update account@jb_link set balance = balance + ? where account_number = ?" );			
+			}
+		if(sendBankCode.equals("20") && bankCode.equals("20")) {
+				sql1.append("update account@jh_link set balance = balance - ? where account_number = ?" );
+				sql2.append("update account@jh_link set balance = balance + ? where account_number = ?" );			
+			}
+		if(sendBankCode.equals("2") && bankCode.equals("9")) {
+			sql1.append("update account@bk_link set balance = balance - ? where account_number = ?" );
+			sql2.append("update account set balance = balance + ? where account_number = ?" );			
+			}
+			if(sendBankCode.equals("2") && bankCode.equals("2")) {
+				sql1.append("update account@bk_link set balance = balance - ? where account_number = ?" );
+				sql2.append("update account@bk_link set balance = balance + ? where account_number = ?" );			
+			}
+			if(sendBankCode.equals("2") && bankCode.equals("14")) {
+				sql1.append("update account@bk_link set balance = balance - ? where account_number = ?" );
+				sql2.append("update account@jb_link set balance = balance + ? where account_number = ?" );			
+			}
+			if(sendBankCode.equals("2") && bankCode.equals("20")) {
+				sql1.append("update account@bk_link set balance = balance - ? where account_number = ?" );
+				sql2.append("update account@jh_link set balance = balance + ? where account_number = ?" );			
+			}
+			
+			if(sendBankCode.equals("14") && bankCode.equals("9")) {
+				sql1.append("update account@jb_link set balance = balance - ? where account_number = ?" );
+				sql2.append("update account set balance = balance + ? where account_number = ?" );			
+				}
+				if(sendBankCode.equals("14") && bankCode.equals("2")) {
+					sql1.append("update account@jb_link set balance = balance - ? where account_number = ?" );
+					sql2.append("update account@bk_link set balance = balance + ? where account_number = ?" );			
+				}
+				if(sendBankCode.equals("14") && bankCode.equals("14")) {
+					sql1.append("update account@jb_link set balance = balance - ? where account_number = ?" );
+					sql2.append("update account@jb_link set balance = balance + ? where account_number = ?" );			
+				}
+				if(sendBankCode.equals("14") && bankCode.equals("20")) {
+					sql1.append("update account@jb_link set balance = balance - ? where account_number = ?" );
+					sql2.append("update account@jh_link set balance = balance + ? where account_number = ?" );			
+				}
+				
+			
+		
+		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();
 			PreparedStatement pstmt1 = conn.prepareStatement(sql1.toString());
 			PreparedStatement pstmt2 = conn.prepareStatement(sql2.toString());) {
-		pstmt1.setString(1, transferAmount);
+		pstmt1.setInt(1, transferAmount);
 		pstmt1.setString(2, sendAccountNum);
 
-		pstmt2.setString(1, transferAmount);
+		pstmt2.setInt(1, transferAmount);
 		pstmt2.setString(2, receiveAccountNum);
 
 		pstmt1.executeUpdate();
@@ -232,6 +434,7 @@ public static List<AccountVO> selectAcc() {
 		
 		
 	}
+
 
 
 }
