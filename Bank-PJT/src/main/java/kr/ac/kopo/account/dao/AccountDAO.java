@@ -296,8 +296,8 @@ public static List<AccountVO> selectAcc() {
 		
 		StringBuilder sql = new StringBuilder();
 		sql.append("select phone_number, account_number, account_password, bank_code, bank_reg_date, balance, bank_alias, transfer_limit ");
-		sql.append(" from account a, b_member b ");
-		sql.append(" where a.phone_number = b.phone ");
+		sql.append(" from account ");
+//		sql.append(" where a.phone_number = b.phone ");
 		
 		
 		try(

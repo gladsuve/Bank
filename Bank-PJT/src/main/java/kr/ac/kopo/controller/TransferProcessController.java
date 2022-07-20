@@ -70,7 +70,7 @@ public class TransferProcessController implements Controller {
 		
 	
 		
-		return "redirect:/accList.do";
+		return "transaction.do?";
 	}
 
 }
