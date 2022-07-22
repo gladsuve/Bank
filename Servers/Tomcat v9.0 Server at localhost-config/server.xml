@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Lecture-web" path="/Lecture-web" reloadable="true" source="org.eclipse.jst.jee.server:Lecture-web"/><Context docBase="Mission-web" path="/Mission-web" reloadable="true" source="org.eclipse.jst.jee.server:Mission-web"/><Context docBase="Mission-MVC" path="/Mission-MVC" reloadable="true" source="org.eclipse.jst.jee.server:Mission-MVC"/><Context docBase="Bank-PJT" path="/Bank-PJT" reloadable="true" source="org.eclipse.jst.jee.server:Bank-PJT"/></Host>
+      <Context docBase="Lecture-web" path="/Lecture-web" reloadable="true" source="org.eclipse.jst.jee.server:Lecture-web"/><Context docBase="Mission-web" path="/Mission-web" reloadable="true" source="org.eclipse.jst.jee.server:Mission-web"/><Context docBase="Mission-MVC" path="/Mission-MVC" reloadable="true" source="org.eclipse.jst.jee.server:Mission-MVC"/><Context docBase="Bank-PJT" path="/Bank-PJT" reloadable="true" source="org.eclipse.jst.jee.server:Bank-PJT"/><Context docBase="Mission-MVC02" path="/Mission-MVC02" reloadable="true" source="org.eclipse.jst.jee.server:Mission-MVC02"/></Host>
     </Engine>
   </Service>
 </Server>
